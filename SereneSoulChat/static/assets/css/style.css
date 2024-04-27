@@ -1,0 +1,82 @@
+/* Working on the Login page */
+
+        .navbar {
+            background-color: rgba(234, 229, 223, 0.8); /* Background color (EAE5DF) with opacity */
+            backdrop-filter: blur(10px); /* Apply blur effect */
+            padding: 10px 20px; /* Padding inside the navbar */
+        }
+
+
+        .nav-links {
+            flex: 1; /* Flex-grow to expand and fill remaining space */
+            display: flex;
+            justify-content: center; /* Center align navigation links */
+        }
+
+        .nav-link {
+            margin: 0 10px; /* Margin between navigation links */
+            color: #BE959F; /* Primary color (BE959F) for links */
+        }
+
+        .join-link {
+            color: #13472E; /* Secondary color (13472E) for special link */
+            font-weight: bold; /* Bold font weight for emphasis */
+        }
+        /* .navbar {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        } */
+
+        .logo {
+            height: 20px;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .custom-button {
+        background-color: #13472E; /* Background color */
+        color: white; /* Text color */
+        padding: 12px 24px; /* Padding for the button */
+        border: none; /* Remove default border */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Change cursor to pointer on hover */
+    }
+
+    /* Hover effect for the button */
+    .custom-button:hover {
+        background-color: #0E2F1C; /* Darker background color on hover */
+    }
+    .green-text{
+        color: #13472E;
+    }
+    .custom-input {
+        width: 100%;
+        padding: 5px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        transition: border-color 0.3s ease; /* Smooth transition for border color */
+    }
+    .custom-input:focus {
+        outline: none; /* Remove default focus outline */
+        border-color: #BE959F; /* Change border color on focus */
+        box-shadow: 0 0 5px rgba(345, 22, 75, 0.5); /* Optional: Add a shadow on focus */
+    }
+
+    /* Change border color when input is hovered */
+    .custom-input:hover {
+        border-color: #BE959F; /* Change border color on hover */
+    }
+    /* Done working with the login page */
