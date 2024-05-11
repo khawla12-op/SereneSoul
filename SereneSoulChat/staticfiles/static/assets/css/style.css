@@ -1,4 +1,4 @@
-/* Working on the Login page */
+Working on the Login page
 body {
             background-image: url( "{% static 'assets/img/login_bg.jpg' %}" );
             background-size: 100%;
@@ -79,3 +79,111 @@ body {
         border-color: #BE959F; /* Change border color on hover */
     }
     /* Done working with the login page */
+    /*working on the user interface */
+   
+    h1 {
+        font-size: 33px;
+        font-weight: 600;
+        padding: 200px 0;
+        transition: transform 0.3s; /* Add transition for smooth scaling */
+      }
+      h1:hover{
+       transform:scale(1.3);
+      }
+      
+      
+      .sidebar {
+        background-color: #202123;
+        width: 244px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      
+      .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        height: 100vh;
+        width: 100%;
+      }
+      
+      .bottom-section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .info {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 13px;
+        padding: 10px;
+      }
+      
+      input {
+        border: none;
+        background-color: rgba(255, 255, 255, 0.5);
+        width: 100%;
+        font-size: 20px;
+        padding: 12px 15px;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.05);
+      }
+      
+      input:focus {
+        outline: none;
+      }
+      
+      .input-container {
+        position: relative;
+        width: 100%;
+        max-width: 650px;
+      }
+      
+      .input-container #submit {
+        position: absolute;
+        right: 0;
+        bottom: 15px;
+        cursor: pointer;
+        width: 10px;
+        color: black;
+      }
+      
+      button {
+        border: solid 0.5px rgba(255, 255, 255, 0.5);
+        background-color: transparent;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      
+      nav {
+        border-top: solid 0.5px white;
+      }
+      
+      nav p {
+        text-align: center;
+      }
+      
+      .history {
+        padding: 10px;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      
+      .history p {
+        cursor: pointer;
+      }
+      #output {
+        font-size:23px;
+          }
+        
+      

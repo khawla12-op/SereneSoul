@@ -1,0 +1,208 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serene Soul</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+
+{% comment %} <body style="background-image: url('{% static 'assets/img/hand.png' %}'); background-size: 100%; background-position: center; height: 100vh; display: flex; justify-content: center; align-items: center;"> {% endcomment %}
+{% comment %} <body class="chatbotInterface">
+<section>
+    <button>New chatbot</button>
+    <div class="history"></div>
+    <div class="nav">
+        <p>Welcome to Serene Soul</p>
+    </div>
+</section>
+<section class="main">
+    <h1>SereneSoul</h1>
+    <p id="output"></p>
+    <div class="bottom-section">
+       <div class="input-container">
+        <input/>
+        <div id="submit"></div>
+       </div>
+    </div>
+    <p class="info">Welcome to Serene Soul.Ask Whatever you want</p>
+
+
+</section> {% endcomment %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Barriecito&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #343541;
+  display: flex;
+}
+
+h1 {
+  font-size: 33px;
+  font-weight: 600;
+  padding: 200px 0;
+  transition: transform 0.3s; /* Add transition for smooth scaling */
+}
+
+
+.sidebar {
+  background-color:rgba(152, 93, 105, 0.3);
+  width: 300px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100%;
+  background-image:url('{% static 'assets/img/hand.png' %}');
+  background-size: cover;
+}
+
+.bottom-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+input {
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  font-size: 20px;
+  padding: 12px 15px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.05);
+}
+
+input:focus {
+  outline: none;
+}
+
+
+.input-container #submit {
+  position: absolute;
+  right: 0;
+  bottom: 15px;
+  cursor: pointer;
+  width: 10px;
+  color: black;
+}
+
+button {
+  border: solid 0.5px rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+nav {
+  border-top: solid 0.5px white;
+}
+
+nav p {
+  text-align: center;
+}
+
+.history {
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.history p {
+  cursor: pointer;
+}
+#output {
+  font-size:23px;
+    }
+.userImage{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.user-name{
+    margin-left:4px
+}
+
+
+  
+
+</style>
+</head>
+<body>
+    
+
+    <section class="sidebar">
+        <div class="d-flex align-items-center justify-content-between">
+            <a href="#" class="logo d-flex align-items-center justify-content-center">
+                <img src="{% static 'assets/img/logo2.png' %}" alt="Logo" style="width: 80%; margin-left:15px ;margin-right:15px ;margin-top:30px ;margin-bottom:15px">
+            </a>
+        </div>
+        
+        <button style="margin-top:30px" >New chat</button>
+        <div class="history"></div>
+        <nav  style="display: flex; align-items: center;">
+           
+            <img src="{% static 'assets/img/user.jpg' %}" alt="User Icon" class="userImage">
+            <span class="user-name">UserName</span>
+           
+        </nav>
+        
+    </section>
+    <section class="main">
+        <div class="container text-center py-5">
+            <h1 class="display-4">Welcome to your medical assistant Serene Soul</h1>
+            <p id="output" class="lead"></p>
+            <div class="bottom-section mt-5">
+                <div class="input-group" style=" width: 60%;">
+                    <input type="text" class="form-control" placeholder="Send a message" aria-label="Message">
+                    <div class="input-group-append" >
+                        <button class="btn btn-primary" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+                                <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+<script src="{% static 'assets/js/main.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+      
+</body>
+
+</html>
+
+

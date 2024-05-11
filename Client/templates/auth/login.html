@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serene Soul</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+</head>
+<body style="background-image: url('{% static 'assets/img/login_bg.jpg' %}'); background-size: 100%; background-position: center; height: 100vh; display: flex; justify-content: center; align-items: center;">
+    <div class="navbar w-full fixed top-0 left-0 z-50 flex justify-between items-center rounded-b-lg">
+        <img src= "{% static 'assets/img/logo2.png' %}"  alt="Logo" class="logo">
+        <nav class="nav-links">
+            <a href="#" class="mx-2 nav-link green-text">Home</a>
+            <a href="#" class="mx-2 nav-link green-text">About</a>
+            <a href="#" class="mx-2 nav-link green-text">Contact</a>
+        </nav>
+        <a href="#" class="join-link">Join the Community</a>
+</div>
+    <!-- Login Form Card -->
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            <div class="alert alert-warning alert-dismissiblefade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+    <div class="card mt-24">
+        <h2 class="text-2xl font-bold mb-4 green-text">Login</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <div class="mb-4">
+                <label for="username" class="block text-sm font-medium green-text">Username</label>
+                <input type="text" id="username" name="username" class="custom-input form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+            </div>
+            {% comment %} <div class="mb-4">
+                <label for="mail" class="block text-sm font-medium green-text">Mail</label>
+                <input type="text" id="mail" name="mail" class="custom-input form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+            </div>
+           {% endcomment %}
+            <div class="mb-6">
+                <label for="password" class="block text-sm font-medium green-text">Password</label>
+                <input type="password" id="password" name="password" class="custom-input form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+            </div>
+            <button type="submit" class="custom-button">Login</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
+

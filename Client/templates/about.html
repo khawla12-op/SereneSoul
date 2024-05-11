@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serene Soul</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <style>
+      
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            border-radius: 15px; /* Increased border radius */
+    
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 15px; /* Increased border radius */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            margin: 20px;
+            overflow: hidden;
+            width: 30%;
+            transition: transform 0.3s ease-in-out; /* Added transition for hover effect */
+        }
+        .card:hover {
+            transform: scale(1.05); /* Added hover effect */
+        }
+        .card h5 {
+            margin: 0;
+            padding: 20px;
+            background-color: rgba(19, 71, 46, 1);
+            color: #fff;
+            border-bottom: 1px solid rgba(19, 71, 46, 1); /* Added border bottom */
+        }
+        .card p {
+            padding: 20px;
+            margin: 0;
+            line-height: 1.6;
+            color: rgba(19, 71, 46, 1);
+        }
+    </style>
+</head>
+
+<body class="background-white">
+
+<!-- Additional content here -->
+<section class="container">
+    <div class="card">
+        <h5>Franchir les Frontières Médicales</h5>
+        <p>SereneSoul offre des recommandations personnalisées pour aider les utilisateurs à faire face à leur situation, basées sur diverses données médicales spécialisées.</p>
+    </div>
+    <div class="card">
+        <h5>Échanger avec des Professionnels</h5>
+        <p>Discutez avec des professionnels dans le domaine pour contacter directement des professionnels de la santé mentale en cas de besoin urgent d'aide.</p>
+    </div>
+    <div class="card">
+        <h5>Conversations Confidentielles</h5>
+        <p>Les utilisateurs peuvent engager des conversations confidentielles avec notre chatbot, en partageant leurs sentiments, leurs expériences et leurs défis mentaux sans craindre d'être jugés.</p>
+    </div>
+</section>
+
+
+
+</body>
+
+
+</html>
+
+
+

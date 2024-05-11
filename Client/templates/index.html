@@ -1,12 +1,167 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Welcome to sereneSOul</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serene Soul</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <style>
+      .background-section{
+        background-image: url('{% static 'assets/img/heart.png' %}');
+        background-size: 100%;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+            
+      .container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        border-radius: 15px; /* Increased border radius */
+    }
+    .card {
+        background-color: #fff;
+        border-radius: 15px; /* Increased border radius */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        margin: 20px;
+        overflow: hidden;
+        width: 30%;
+        transition: transform 0.3s ease-in-out; /* Added transition for hover effect */
+    }
+    #about:hover {
+        transform: scale(1.05); /* Added hover effect */
+    }
+    .card h5 {
+        margin: 0;
+        padding: 20px;
+        background-color: rgba(19, 71, 46, 1);
+        color: #fff;
+        border-bottom: 1px solid rgba(19, 71, 46, 1); /* Added border bottom */
+    }
+    .card p {
+        padding: 20px;
+        margin: 0;
+        line-height: 1.6;
+        color: rgba(19, 71, 46, 1);
+    }
+    
+    .containerContact{
+        justify-content: space-around;
+        flex-wrap: wrap;
+        border-radius: 15px; /* Increased border radius */
+        display: flex;
+    }
+    .cardContact{
+        background-color: #fff;
+        border-radius: 15px; /* Increased border radius */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        margin: 20px;
+        overflow: hidden;
+        width: 30%;
+    }
+    .cardContact h5 {
+        margin: 0;
+        padding: 20px;
+        background-color: rgba(19, 71, 46, 1);
+        color: #fff;
+        border-bottom: 1px solid rgba(19, 71, 46, 1); /* Added border bottom */
+    }
+
+    </style>
 </head>
+
 <body>
-    <h1>Welcome to sereneSOul</h1>
-    <p>This is a simple HTML page.</p>
-    <hr>
- 
+
+<div class="navbar w-full fixed top-0 left-0 z-50 flex justify-between items-center rounded-b-lg">
+    <img src="{% static 'assets/img/logo2.png' %}" alt="Logo" class="logo">
+    <nav class="nav-links">
+        <a href="home/" class="mx-2 nav-link green-text">Home</a>
+   
+        <a href="#about" class="mx-2 nav-link green-text" onclick="scrollToAbout()">About</a>
+        
+        <a href="#contact" class="mx-2 nav-link green-text" onclick="scrollToSection('contact')">Contact</a>
+    </nav>
+    <form action="user">
+        <a href="login_user/" class="join-link">Discuss With our Chatbot</a>
+    </form>
+</div>
+
+<div id="content">
+    <div class="background-section">
+        <div class="block max-w-3xl p-4 border border-gray-300 rounded-lg shadow dark:border-gray-700 dark:hover:bg-gray-700 bg-opacity-30" style="display: flex; align-items: center; background-color: rgba(190, 149, 159, 0.3);">
+            <img src="{% static 'assets/img/logo_circulaire.png' %}" alt="Logo" style="width:300px; margin-right:20px;opacity:100%">
+            <p style="width:100px opacity:1 ;" class="text-white">Welcome to SereneSoul, your oasis for mental well-being. Discover solace, support, and personalized guidance on your journey to inner peace. Join our community today and embark on a path towards a brighter tomorrow.</p>
+        </div>
+    </div>
+
+    <section class="container" id="about">
+        <h2 class="text-2xl font-bold mb-4 green-text">About Our Services</h2>
+        <p class="text-lg mb-8">At SereneSoul, we offer a range of services tailored to help you achieve mental wellness. Our services include personalized recommendations based on specialized medical data, direct communication with mental health professionals, and confidential conversations with our chatbot.</p>
+        <div class="card">
+            <h5>Franchir les Frontières Médicales</h5>
+            <p>SereneSoul offers personalized recommendations to help users deal with their situation, based on various specialized medical data.</p>
+        </div>
+        <div class="card">
+            <h5>Échanger avec des Professionnels</h5>
+            <p>Chat with professionals in the field to directly contact mental health professionals in case of urgent need for help.</p>
+        </div>
+        <div class="card">
+            <h5>Conversations Confidentielles</h5>
+            <p>Users can engage in confidential conversations with our chatbot, sharing their feelings, experiences, and mental challenges without fear of judgment.</p>
+        </div>
+    </section>
+
+    <section class="container mt-2" id="contact">
+        <div class="card mt-24">
+            <h2 class="text-2xl font-bold mb-4 green-text">Contact</h2>
+            <form action="" method="POST">
+                {% csrf_token %}
+
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium green-text">Name</label>
+                    <input type="text" id="name" name="name" class="custom-input form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                </div>
+
+                <div class="mb-4">
+                    <label for="surname" class="block text-sm font-medium green-text">Surname</label>
+                    <input type="text" id="surname" name="surname" class="custom-input form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                </div>
+
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium green-text">Email</label>
+                    <input type="email" id="email" name="email" class="custom-input form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                </div>
+
+                <div class="mb-6">
+                    <label for="message" class="block text-sm font-medium green-text">Message</label>
+                    <textarea id="message" name="message" rows="4" class="custom-input form-textarea mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"></textarea>
+                </div>
+
+                <button type="submit" class="custom-button">Submit</button>
+            </form>
+        </div>
+    </section>
+</div>
+
+<script>
+    function scrollToAbout() {
+        document.getElementById('about').scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+    function scrollToSection(sectionId) {
+        document.getElementById(sectionId).scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+</script>
+
 </body>
+
 </html>
